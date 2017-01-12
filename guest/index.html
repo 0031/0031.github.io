@@ -41,7 +41,6 @@
     
   
   <link rel="stylesheet" href="/main.css?v=4.0.0.css">
-  <link rel="stylesheet" href="/assets/css/returnToTop.css">
   
 
   
@@ -433,7 +432,15 @@
 </script>
 
 
-<script src="/assets/js/returnToTop.js"></script>
+<script src="/assets/plugins/return-to-top/dist/js/return-to-top.min.js"></script>
+<script>
+	window.returnToTop.init({
+		'bg': {
+	 		'dir': '/assets/plugins/return-to-top/dist/images'
+	 	},
+	 	'scroll': 'container'
+	});
+</script>
 
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
@@ -487,22 +494,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">CDN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">网站优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">图片压缩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color1">Linux</a>
               </li>
              
@@ -512,6 +503,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color4">CDN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">网站优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,7 +538,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">Web</a>
+                <a href="javascript:void(0)" class="color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color2">Plugin</a>
               </li>
              
               <li class="article-tag-list-item">

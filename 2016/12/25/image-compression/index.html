@@ -18,7 +18,7 @@
 网上找了很多优化方法，最终决定将图片资源托管至七牛CDN，不过据说后期图片多了会依赖它，然后慢慢你的钱包就分了一部分给它，">
 <meta property="og:image" content="http://images.qxcwe.cn/assets/images/a/image-compression/1.jpg">
 <meta property="og:image" content="http://images.qxcwe.cn/assets/images/a/image-compression/2.jpg">
-<meta property="og:updated_time" content="2017-01-06T14:14:08.906Z">
+<meta property="og:updated_time" content="2017-01-12T08:12:14.394Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图片压缩以加快网站访问速度">
 <meta name="twitter:description" content="语文功底不好的我，绞尽脑汁写了几篇文章发布到服务器上，由于这其中包含了不少图片，测试访问速度并不理想，体验很差。虽然Hexo已经将网站转为静态页面了，性能提升很多，但毕竟用的github空间，不花钱，已经算是很不错的了。因此，只能先从图片上下功夫，至于js和css暂时不管。
@@ -33,7 +33,6 @@
     
   
   <link rel="stylesheet" href="/main.css?v=4.0.0.css">
-  <link rel="stylesheet" href="/assets/css/returnToTop.css">
   
 
   
@@ -249,10 +248,6 @@
 			 
         <li class="article-tag-list-item">
         	<a href="javascript:void(0)" class="article-tag-list-link color4">CDN</a>
-        </li>
-       
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color2">Server</a>
         </li>
        
         <li class="article-tag-list-item">
@@ -502,7 +497,15 @@
 </script>
 
 
-<script src="/assets/js/returnToTop.js"></script>
+<script src="/assets/plugins/return-to-top/dist/js/return-to-top.min.js"></script>
+<script>
+	window.returnToTop.init({
+		'bg': {
+	 		'dir': '/assets/plugins/return-to-top/dist/images'
+	 	},
+	 	'scroll': 'container'
+	});
+</script>
 
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
@@ -556,22 +559,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">CDN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">网站优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">图片压缩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color1">Linux</a>
               </li>
              
@@ -581,6 +568,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color4">CDN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">网站优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -604,7 +603,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">Web</a>
+                <a href="javascript:void(0)" class="color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color2">Plugin</a>
               </li>
              
               <li class="article-tag-list-item">

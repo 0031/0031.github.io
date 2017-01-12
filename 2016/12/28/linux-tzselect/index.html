@@ -29,7 +29,6 @@
     
   
   <link rel="stylesheet" href="/main.css?v=4.0.0.css">
-  <link rel="stylesheet" href="/assets/css/returnToTop.css">
   
 
   
@@ -295,6 +294,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/01/03/return-to-top-js-plugin/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          一款简易的网页返回顶部JS原生插件
+        
+      </div>
+    </a>
+  
   
     <a href="/2016/12/25/image-compression/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">图片压缩以加快网站访问速度</div>
@@ -458,7 +466,15 @@
 </script>
 
 
-<script src="/assets/js/returnToTop.js"></script>
+<script src="/assets/plugins/return-to-top/dist/js/return-to-top.min.js"></script>
+<script>
+	window.returnToTop.init({
+		'bg': {
+	 		'dir': '/assets/plugins/return-to-top/dist/images'
+	 	},
+	 	'scroll': 'container'
+	});
+</script>
 
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
@@ -512,22 +528,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">CDN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">Server</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">网站优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">图片压缩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color1">Linux</a>
               </li>
              
@@ -537,6 +537,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color4">CDN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">网站优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">图片压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,7 +572,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">Web</a>
+                <a href="javascript:void(0)" class="color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color2">Plugin</a>
               </li>
              
               <li class="article-tag-list-item">
