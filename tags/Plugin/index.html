@@ -223,7 +223,8 @@
           </div>
         </div>
       </div>
-      <a href="javascript:;" id="return-to-top" title="点我起飞" style="display: none"></a>
+      <a href="javascript:;" id="return-to-top" title="点我起飞"></a>
+<a href="javascript:;" id="return-to-top-mobile" title="点我起飞"></a>
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
@@ -350,10 +351,19 @@
 <script src="/assets/plugins/return-to-top/dist/js/return-to-top.min.js"></script>
 <script>
 	window.returnToTop.init({
+		'namespace': 'pc',
 		'bg': {
 	 		'dir': '/assets/plugins/return-to-top/dist/images'
 	 	},
 	 	'scroll': 'container'
+	});
+	window.returnToTop.init({
+		'namespace': 'mobile',
+		'bg': {
+	 		'dir': '/assets/plugins/return-to-top/dist/images'
+	 	},
+	 	'scroll': 'window',
+	 	'id': 'return-to-top-mobile',
 	});
 </script>
 
@@ -409,18 +419,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color1">Shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color3">OS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color4">CDN</a>
               </li>
              
@@ -441,18 +439,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">Tomcat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color3">Eclipse</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color1">Javascript</a>
               </li>
              
@@ -461,7 +447,31 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color4">Timezone</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color2">Tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color3">Eclipse</a>
               </li>
             
             <div class="clearfix"></div>
