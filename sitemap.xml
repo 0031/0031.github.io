@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>/2017/02/14/diamond-operator/</loc>
+    
+    <lastmod>2017-02-14T04:12:11.539Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>/assets/plugins/return-to-top/dist/js/return-to-top.min.js</loc>
     
     <lastmod>2017-02-08T08:04:25.050Z</lastmod>
