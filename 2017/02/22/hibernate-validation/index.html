@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="">
-  <title>Tag: Linux | 0031的个人空间</title>
+  <title>Hibernate校验器的正确打开方式 | 0031的个人空间</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="重交13级在读。热爱软件编程，深入学习WEB开发技术，一枚资深程序猿，并经常混迹于各大技术论坛。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="0031的个人空间">
-<meta property="og:url" content="/tags/Linux/index.html">
+  <meta name="description" content="之前学习SpringMVC时，听说过一些校验器，在Bean中配置一些注解，即可方便的进行参数验证。但是由于当时在学校，写的系统并不太复杂，参数并不多，还有就是没有花心思去学（说白了就是懒），因此没有用到。但现在来实习，发现他们以前写的代码和我在学校写的类似，但是参数太多，意味着加一个参数就要在控制器中新加一行代码，非常不便于维护。所以我才选择了校验器来对他们的代码进行优化（算是为自己减少维护量吧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hibernate校验器的正确打开方式">
+<meta property="og:url" content="/2017/02/22/hibernate-validation/index.html">
 <meta property="og:site_name" content="0031的个人空间">
-<meta property="og:description" content="重交13级在读。热爱软件编程，深入学习WEB开发技术，一枚资深程序猿，并经常混迹于各大技术论坛。">
+<meta property="og:description" content="之前学习SpringMVC时，听说过一些校验器，在Bean中配置一些注解，即可方便的进行参数验证。但是由于当时在学校，写的系统并不太复杂，参数并不多，还有就是没有花心思去学（说白了就是懒），因此没有用到。但现在来实习，发现他们以前写的代码和我在学校写的类似，但是参数太多，意味着加一个参数就要在控制器中新加一行代码，非常不便于维护。所以我才选择了校验器来对他们的代码进行优化（算是为自己减少维护量吧">
+<meta property="og:image" content="http://images.qxcwe.cn/assets/images/a/hibernate-validation/1.png">
+<meta property="og:updated_time" content="2017-02-22T02:50:10.696Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="0031的个人空间">
-<meta name="twitter:description" content="重交13级在读。热爱软件编程，深入学习WEB开发技术，一枚资深程序猿，并经常混迹于各大技术论坛。">
+<meta name="twitter:title" content="Hibernate校验器的正确打开方式">
+<meta name="twitter:description" content="之前学习SpringMVC时，听说过一些校验器，在Bean中配置一些注解，即可方便的进行参数验证。但是由于当时在学校，写的系统并不太复杂，参数并不多，还有就是没有花心思去学（说白了就是懒），因此没有用到。但现在来实习，发现他们以前写的代码和我在学校写的类似，但是参数太多，意味着加一个参数就要在控制器中新加一行代码，非常不便于维护。所以我才选择了校验器来对他们的代码进行优化（算是为自己减少维护量吧">
+<meta name="twitter:image" content="http://images.qxcwe.cn/assets/images/a/hibernate-validation/1.png">
   
     <link rel="alternative" href="/atom.xml" title="0031的个人空间" type="application/atom+xml">
   
@@ -156,72 +159,236 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="a-hibernate-validation" class="article article-type-a " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-article">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="
-	
-		/2016/12/28/linux-tzselect/
-	
-" class="archive-article-date">
-  	<time datetime="2016-12-28T08:27:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/28/linux-tzselect/">Linux下如何修改时区</a>
+    <h1 class="article-title" itemprop="name">
+      Hibernate校验器的正确打开方式
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+          <a href="
+	
+		javascript:;
+	
+" class="archive-article-date">
+  	<time datetime="2017-02-22T01:16:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="http://images.qxcwe.cn/assets/images/a/hibernate-validation/1.png">
+<p>之前学习SpringMVC时，听说过一些校验器，在Bean中配置一些注解，即可方便的进行参数验证。<br>但是由于当时在学校，写的系统并不太复杂，参数并不多，还有就是没有花心思去学（说白了就是懒），因此没有用到。<br>但现在来实习，发现他们以前写的代码和我在学校写的类似，但是参数太多，意味着加一个参数就要在控制器中新加一行代码，非常不便于维护。<br>所以我才选择了校验器来对他们的代码进行优化（算是为自己减少维护量吧，实在是涉及的字段有点多），于是找到了Hibernate校验器。</p>
+<a id="more"></a>
+<h5 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h5><p>关于引用依赖包可以查看[参考来源]，下面说说常用注解：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">注解</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">AssertTrue</td>
+<td style="text-align:left">布尔值为真</td>
+</tr>
+<tr>
+<td style="text-align:left">AssertFalse</td>
+<td style="text-align:left">布尔值为假</td>
+</tr>
+<tr>
+<td style="text-align:left">Null</td>
+<td style="text-align:left">引用为空</td>
+</tr>
+<tr>
+<td style="text-align:left">NotNull</td>
+<td style="text-align:left">引用不为空</td>
+</tr>
+<tr>
+<td style="text-align:left">NotEmpty</td>
+<td style="text-align:left">字符串引用和值都不是空</td>
+</tr>
+<tr>
+<td style="text-align:left">Min</td>
+<td style="text-align:left">数字的最小值</td>
+</tr>
+<tr>
+<td style="text-align:left">Max</td>
+<td style="text-align:left">数字的最大值</td>
+</tr>
+<tr>
+<td style="text-align:left">Past</td>
+<td style="text-align:left">日期必须是过去</td>
+</tr>
+<tr>
+<td style="text-align:left">Future</td>
+<td style="text-align:left">日期必须是未来</td>
+</tr>
+<tr>
+<td style="text-align:left">Pattern</td>
+<td style="text-align:left">字符串必须匹配正则表达式</td>
+</tr>
+<tr>
+<td style="text-align:left">Valid</td>
+<td style="text-align:left">递归验证引用</td>
+</tr>
+<tr>
+<td style="text-align:left">Size</td>
+<td style="text-align:left">验证字符串是否在Size范围内</td>
+</tr>
+<tr>
+<td style="text-align:left">Email</td>
+<td style="text-align:left">验证字符串是否是一个有效的电子邮箱</td>
+</tr>
+<tr>
+<td style="text-align:left">URL</td>
+<td style="text-align:left">字符串是否是一个有效的URL</td>
+</tr>
+</tbody>
+</table>
+<h5 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h5><p>在bean中需要做验证的变量前加入注解，示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">	<span class="comment">// 用户名肯定不允许为空吧</span></div><div class="line">	<span class="meta">@NotEmpty</span></div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	<span class="comment">// 加入时间肯定不能是将来时吧，也不能为空吧</span></div><div class="line">	<span class="meta">@Past</span></div><div class="line">	<span class="meta">@NotNull</span></div><div class="line">	<span class="keyword">private</span> Date joinDate;</div><div class="line">	<span class="comment">// 年龄不能为负数吧，最久也没听说过活到150的吧（大不了顶破天给他个200）</span></div><div class="line">	<span class="meta">@Size</span>(min = <span class="number">0</span>, max = <span class="number">150</span>)</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">	<span class="comment">// get/set方法不在此贴出</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后在控制器中执行验证即可：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginController</span> </span>&#123;</div><div class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"login"</span>, method = RequestMethod.POST)</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getArchiveTable</span><span class="params">(User user)</span> </span>&#123;</div><div class="line">		<span class="comment">// 先初始化校验器</span></div><div class="line">		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();</div><div class="line">		Validator validator = factory.getValidator();</div><div class="line">		Set&lt;ConstraintViolation&lt;T&gt;&gt; set = validator.validate(user);</div><div class="line">		<span class="comment">// 如果集合元素个数为0，通过验证</span></div><div class="line">		<span class="keyword">if</span>(set.size() == <span class="number">0</span>)&#123;</div><div class="line">			<span class="comment">// 此处执行其他逻辑...</span></div><div class="line">			<span class="comment">// 返回至页面</span></div><div class="line">			<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">// 未通过验证</span></div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="自定义工具类"><a href="#自定义工具类" class="headerlink" title="自定义工具类"></a>自定义工具类</h5><p>由于经常使用到几个变量，为提高复用性，节省开发时间，因此诞生了一个Util工具类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Hibernate校验器帮助类，对常用的几个变量做了统一处理</span></div><div class="line"><span class="comment">// 在bean中需要配置校验注解例如@NotNull、@Valid等</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ValidateUtil</span> </span>&#123;</div><div class="line">	<span class="comment">// 使用校验器，先对数据进行合法性校验</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ValidatorFactory factory;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Validator validator;</div><div class="line">	<span class="comment">// 对变量进行初始化</span></div><div class="line">	<span class="keyword">static</span>&#123;</div><div class="line">		factory = Validation.buildDefaultValidatorFactory();</div><div class="line">		validator = factory.getValidator();</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 使用完后销毁factory对象</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> </span>&#123;</div><div class="line">		factory.close();</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 执行校验并返回校验结果集</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; Set&lt;ConstraintViolation&lt;T&gt;&gt; validate(T obj)&#123;</div><div class="line">		<span class="keyword">return</span> validator.validate(obj);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 执行校验并返回是否合法，合法返回true</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">boolean</span> <span class="title">isLegal</span><span class="params">(T obj)</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> validate(obj).size() == <span class="number">0</span> ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 通过结果集获取错误信息，如果没有则返回空</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">String <span class="title">getMessage</span><span class="params">(Set&lt;ConstraintViolation&lt;T&gt;&gt; set)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(set.size() != <span class="number">0</span>)&#123;</div><div class="line">			StringBuffer msg = <span class="keyword">new</span> StringBuffer();</div><div class="line">			<span class="keyword">for</span> (ConstraintViolation&lt;T&gt; c : set) &#123;</div><div class="line">				msg.append(c.toString());</div><div class="line">				msg.append(<span class="string">","</span>);</div><div class="line">			&#125;</div><div class="line">			<span class="comment">// 删除最后一个,返回结果</span></div><div class="line">			msg.deleteCharAt(msg.length() - <span class="number">1</span>);</div><div class="line">			<span class="keyword">return</span> msg.toString();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><small>如果您觉得我的方法有需要优化的地方，欢迎在评论区吐槽！O(∩_∩)O~</small></p>
+<p>如果使用工具类，那么在控制器中的代码可以简化了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginController</span> </span>&#123;</div><div class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"login"</span>, method = RequestMethod.POST)</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getArchiveTable</span><span class="params">(User user)</span> </span>&#123;</div><div class="line">		<span class="comment">// 通过工具类判断参数是否合法</span></div><div class="line">		<span class="keyword">if</span>(ValidateUtil.isLegal(user))&#123;</div><div class="line">			<span class="comment">// 此处执行其他逻辑...</span></div><div class="line">			<span class="comment">// 返回至页面</span></div><div class="line">			<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">// 未通过验证</span></div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="最后废话几句"><a href="#最后废话几句" class="headerlink" title="最后废话几句"></a>最后废话几句</h5><p>为了节省维护成本，前期多花时间写高质量的代码，否则慢慢的会发现，越来越多的坑在前面等着你。</p>
+<p><br></p>
+<hr>
+
+<p>参考来源：</p>
+<p>① <a href="http://www.jianshu.com/p/6cf7bccce73f" target="_blank" rel="external">Hibernate Validator简介</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list">
 			 
         <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color1">Linux</a>
+        	<a href="javascript:void(0)" class="article-tag-list-link color5">Hibernate</a>
         </li>
        
         <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color1">Shell</a>
-        </li>
-       
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color3">OS</a>
+        	<a href="javascript:void(0)" class="article-tag-list-link color5">参数验证</a>
         </li>
       
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:/2017/02/22/hibernate-validation/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/14/diamond-operator/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java中的diamond运算符  --  JDK 1.7新特性</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="hibernate-validation" data-title="Hibernate校验器的正确打开方式" data-url="/2017/02/22/hibernate-validation/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"0031"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 
           </div>
@@ -249,9 +416,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

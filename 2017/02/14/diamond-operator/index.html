@@ -18,7 +18,7 @@
 <meta property="og:description" content="拷贝前辈之前做过的项目到本机，启动运行控制台打出如下错误：
 12[ERROR] -source 1.6 中不支持 diamond 运算符[ERROR](请使用 -source 7 或更高版本以启用 diamond 运算符)
 项目中出现很多小红叉，但是打开报错的文件，却没有发现错误，至少来说，提示错误的地方并没有逻辑错误。那好，咱就把Eclipse关于Html、Js、Xml的验证给关闭，刷新缓存，好">
-<meta property="og:updated_time" content="2017-02-14T04:12:11.539Z">
+<meta property="og:updated_time" content="2017-02-22T02:52:46.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中的diamond运算符  --  JDK 1.7新特性">
 <meta name="twitter:description" content="拷贝前辈之前做过的项目到本机，启动运行控制台打出如下错误：
@@ -203,6 +203,8 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">debug</span>&gt;</span>true<span class="tag">&lt;/<span class="name">debug</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>然后重新运行项目就不会出现不支持 diamond 运算符的问题了。</p>
 <p><br></p>
+<hr>
+
 <p>参考来源：</p>
 <p>① <a href="http://blog.csdn.net/aliaooooo/article/details/42536295" target="_blank" rel="external">错误: -source 1.6 中不支持 diamond 运算符 (请使用 -source 7 或更高版本以启用 diamond 运算符)</a><br>② <a href="http://blog.csdn.net/wind520/article/details/47341885" target="_blank" rel="external">mvn 请使用 -source 7 或更高版本以启用 diamond 运算符</a></p>
 
@@ -291,6 +293,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/02/22/hibernate-validation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hibernate校验器的正确打开方式
+        
+      </div>
+    </a>
   
   
     <a href="/2017/02/08/my-git-common-commands/" id="article-nav-older" class="article-nav-link-wrap">
@@ -527,6 +538,14 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">Hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">参数验证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color5">Java</a>
               </li>
              
@@ -547,30 +566,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">Timezone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">Tomcat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color3">Eclipse</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color1">Javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">Plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color4">CDN</a>
               </li>
              
@@ -583,11 +578,35 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color5">Blog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color3">发现</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color2">Tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color3">Eclipse</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color2">Plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color4">Timezone</a>
               </li>
             
             <div class="clearfix"></div>
