@@ -2,6 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>/2017/03/09/spring-mvc-json-ignore-properties/</loc>
+    
+    <lastmod>2017-03-09T15:27:46.908Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>/2017/03/07/perhaps-the-bootstrap-table-is-a-good-choice/</loc>
+    
+    <lastmod>2017-03-09T14:19:38.865Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>/examples/perhaps-the-bootstrap-table-is-a-good-choice/3.html</loc>
+    
+    <lastmod>2017-03-09T13:50:55.378Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>/examples/perhaps-the-bootstrap-table-is-a-good-choice/1.html</loc>
+    
+    <lastmod>2017-03-09T12:58:31.295Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>/examples/perhaps-the-bootstrap-table-is-a-good-choice/2.html</loc>
+    
+    <lastmod>2017-03-09T12:52:14.542Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>/tags/index.html</loc>
+    
+    <lastmod>2017-03-02T14:07:41.229Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>/tools/index.html</loc>
+    
+    <lastmod>2017-03-02T13:50:54.821Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>/2017/02/22/hibernate-validation/</loc>
+    
+    <lastmod>2017-02-22T07:28:08.631Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>/2017/02/14/diamond-operator/</loc>
     
     <lastmod>2017-02-22T02:52:46.339Z</lastmod>
@@ -12,13 +68,6 @@
     <loc>/2017/02/08/my-git-common-commands/</loc>
     
     <lastmod>2017-02-22T02:50:12.374Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>/2017/02/22/hibernate-validation/</loc>
-    
-    <lastmod>2017-02-22T02:50:10.696Z</lastmod>
     
   </url>
   

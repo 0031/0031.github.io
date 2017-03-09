@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="0031的个人空间">
 <meta property="og:description" content="之前学习SpringMVC时，听说过一些校验器，在Bean中配置一些注解，即可方便的进行参数验证。但是由于当时在学校，写的系统并不太复杂，参数并不多，还有就是没有花心思去学（说白了就是懒），因此没有用到。但现在来实习，发现他们以前写的代码和我在学校写的类似，但是参数太多，意味着加一个参数就要在控制器中新加一行代码，非常不便于维护。所以我才选择了校验器来对他们的代码进行优化（算是为自己减少维护量吧">
 <meta property="og:image" content="http://images.qxcwe.cn/assets/images/a/hibernate-validation/1.png">
-<meta property="og:updated_time" content="2017-02-22T02:50:10.696Z">
+<meta property="og:updated_time" content="2017-02-22T07:28:08.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hibernate校验器的正确打开方式">
 <meta name="twitter:description" content="之前学习SpringMVC时，听说过一些校验器，在Bean中配置一些注解，即可方便的进行参数验证。但是由于当时在学校，写的系统并不太复杂，参数并不多，还有就是没有花心思去学（说白了就是懒），因此没有用到。但现在来实习，发现他们以前写的代码和我在学校写的类似，但是参数太多，意味着加一个参数就要在控制器中新加一行代码，非常不便于维护。所以我才选择了校验器来对他们的代码进行优化（算是为自己减少维护量吧">
@@ -258,7 +258,7 @@
 <p>然后在控制器中执行验证即可：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginController</span> </span>&#123;</div><div class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"login"</span>, method = RequestMethod.POST)</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getArchiveTable</span><span class="params">(User user)</span> </span>&#123;</div><div class="line">		<span class="comment">// 先初始化校验器</span></div><div class="line">		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();</div><div class="line">		Validator validator = factory.getValidator();</div><div class="line">		Set&lt;ConstraintViolation&lt;T&gt;&gt; set = validator.validate(user);</div><div class="line">		<span class="comment">// 如果集合元素个数为0，通过验证</span></div><div class="line">		<span class="keyword">if</span>(set.size() == <span class="number">0</span>)&#123;</div><div class="line">			<span class="comment">// 此处执行其他逻辑...</span></div><div class="line">			<span class="comment">// 返回至页面</span></div><div class="line">			<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">// 未通过验证</span></div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="自定义工具类"><a href="#自定义工具类" class="headerlink" title="自定义工具类"></a>自定义工具类</h5><p>由于经常使用到几个变量，为提高复用性，节省开发时间，因此诞生了一个Util工具类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Hibernate校验器帮助类，对常用的几个变量做了统一处理</span></div><div class="line"><span class="comment">// 在bean中需要配置校验注解例如@NotNull、@Valid等</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ValidateUtil</span> </span>&#123;</div><div class="line">	<span class="comment">// 使用校验器，先对数据进行合法性校验</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ValidatorFactory factory;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Validator validator;</div><div class="line">	<span class="comment">// 对变量进行初始化</span></div><div class="line">	<span class="keyword">static</span>&#123;</div><div class="line">		factory = Validation.buildDefaultValidatorFactory();</div><div class="line">		validator = factory.getValidator();</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 使用完后销毁factory对象</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> </span>&#123;</div><div class="line">		factory.close();</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 执行校验并返回校验结果集</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; Set&lt;ConstraintViolation&lt;T&gt;&gt; validate(T obj)&#123;</div><div class="line">		<span class="keyword">return</span> validator.validate(obj);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 执行校验并返回是否合法，合法返回true</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">boolean</span> <span class="title">isLegal</span><span class="params">(T obj)</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> validate(obj).size() == <span class="number">0</span> ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 通过结果集获取错误信息，如果没有则返回空</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">String <span class="title">getMessage</span><span class="params">(Set&lt;ConstraintViolation&lt;T&gt;&gt; set)</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(set.size() != <span class="number">0</span>)&#123;</div><div class="line">			StringBuffer msg = <span class="keyword">new</span> StringBuffer();</div><div class="line">			<span class="keyword">for</span> (ConstraintViolation&lt;T&gt; c : set) &#123;</div><div class="line">				msg.append(c.toString());</div><div class="line">				msg.append(<span class="string">","</span>);</div><div class="line">			&#125;</div><div class="line">			<span class="comment">// 删除最后一个,返回结果</span></div><div class="line">			msg.deleteCharAt(msg.length() - <span class="number">1</span>);</div><div class="line">			<span class="keyword">return</span> msg.toString();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Hibernate校验器帮助类，对一些内部变量做了统一处理</span></div><div class="line"><span class="comment">// 在bean中需要配置校验注解例如@NotNull、@Valid等</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ValidateUtil</span> </span>&#123;</div><div class="line">	<span class="comment">// 使用校验器，先对数据进行合法性校验</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ValidatorFactory factory;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Validator validator;</div><div class="line">	<span class="keyword">static</span>&#123;</div><div class="line">		factory = Validation.buildDefaultValidatorFactory();</div><div class="line">		validator = factory.getValidator();</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 使用完后销毁factory对象</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> </span>&#123;</div><div class="line">		factory.close();</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 执行校验并返回校验结果集</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; Set&lt;ConstraintViolation&lt;T&gt;&gt; validate(T obj)&#123;</div><div class="line">		<span class="keyword">return</span> validator.validate(obj);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 执行校验并返回是否合法，合法返回true</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">boolean</span> <span class="title">isLegal</span><span class="params">(T obj)</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> validate(obj).size() == <span class="number">0</span> ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 获取出错的字段集合</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;String&gt; <span class="title">getErrorProperties</span><span class="params">(Set&lt;ConstraintViolation&lt;T&gt;&gt; set)</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> getErrors(set, <span class="keyword">false</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 获取出错信息集合</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;String&gt; <span class="title">getErrorMessages</span><span class="params">(Set&lt;ConstraintViolation&lt;T&gt;&gt; set)</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> getErrors(set, <span class="keyword">true</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 获取出错信息</div><div class="line">	 * <span class="doctag">@param</span> showMsg 是否显示详细信息</div><div class="line">	 * <span class="doctag">@return</span></div><div class="line">	 */</div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;String&gt; <span class="title">getErrors</span><span class="params">(Set&lt;ConstraintViolation&lt;T&gt;&gt; set, <span class="keyword">boolean</span> showMsg)</span></span>&#123;</div><div class="line">		List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">		<span class="keyword">if</span>(set.size() != <span class="number">0</span>)&#123;</div><div class="line">			<span class="keyword">for</span> (ConstraintViolation&lt;T&gt; c : set) &#123;</div><div class="line">				String error = c.getPropertyPath().toString();</div><div class="line">				<span class="comment">// 如果需要显示出错详细信息</span></div><div class="line">				<span class="keyword">if</span>(showMsg)&#123;</div><div class="line">					error += c.getMessage().toString();</div><div class="line">				&#125;</div><div class="line">				list.add(error);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> list;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><small>如果您觉得我的方法有需要优化的地方，欢迎在评论区吐槽！O(∩_∩)O~</small></p>
 <p>如果使用工具类，那么在控制器中的代码可以简化了：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginController</span> </span>&#123;</div><div class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"login"</span>, method = RequestMethod.POST)</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getArchiveTable</span><span class="params">(User user)</span> </span>&#123;</div><div class="line">		<span class="comment">// 通过工具类判断参数是否合法</span></div><div class="line">		<span class="keyword">if</span>(ValidateUtil.isLegal(user))&#123;</div><div class="line">			<span class="comment">// 此处执行其他逻辑...</span></div><div class="line">			<span class="comment">// 返回至页面</span></div><div class="line">			<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">// 未通过验证</span></div><div class="line">		<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -354,6 +354,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/03/07/perhaps-the-bootstrap-table-is-a-good-choice/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          或许bootstrap-table能提高你的开发效率
+        
+      </div>
+    </a>
   
   
     <a href="/2017/02/14/diamond-operator/" id="article-nav-older" class="article-nav-link-wrap">
@@ -590,31 +599,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">Hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">参数验证</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color1">Maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color1">Shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,7 +619,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">Git</a>
+                <a href="javascript:void(0)" class="color5">Hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">参数验证</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color1">Shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,11 +655,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color1">Javascript</a>
+                <a href="javascript:void(0)" class="color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">SpringMVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">参数绑定</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color1">Table</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color2">Plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
